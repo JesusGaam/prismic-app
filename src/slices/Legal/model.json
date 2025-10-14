@@ -1,0 +1,33 @@
+{
+  "id": "legal",
+  "type": "SharedSlice",
+  "name": "Legal",
+  "description": "Legal",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "cat": {
+          "type": "Text",
+          "config": {
+            "label": "CAT",
+            "placeholder": ""
+          }
+        },
+        "calculation_date": {
+          "type": "Text",
+          "config": {
+            "label": "calculation date",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

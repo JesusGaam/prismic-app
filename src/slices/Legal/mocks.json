@@ -1,0 +1,19 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"cat": {
+				"__TYPE__": "FieldContent",
+				"value": "nervous",
+				"type": "Text"
+			},
+			"calculation_date": {
+				"__TYPE__": "FieldContent",
+				"value": "broken",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
