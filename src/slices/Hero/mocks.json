@@ -1,0 +1,88 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Ahórrate el horror de intereses interminables",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"image": {
+				"provider": "imgix",
+				"url": "https://images.unsplash.com/photo-1597589022928-bb4002c099ec?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NjA1NTczOTJ8MA&ixlib=rb-4.1.0&q=85",
+				"alt": "yellow lemon fruit beside green leaves",
+				"origin": {
+					"id": "3t8rQ3LD2JI",
+					"url": "https://images.unsplash.com/photo-1597589022928-bb4002c099ec?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NjA1NTczOTJ8MA&ixlib=rb-4.1.0&q=85",
+					"width": 3024,
+					"height": 3024
+				},
+				"width": 3024,
+				"height": 3024,
+				"edit": {
+					"background": "transparent",
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "list-item",
+						"content": {
+							"text": "Obtén hasta $400,000 MXN con pagos fijos.",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 12,
+									"end": 24
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "list-item",
+						"content": {
+							"text": "Tasa mensual desde 2.5%.",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 19,
+									"end": 23
+								}
+							]
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"button_link": {
+				"key": "8cc53a3a-48e3-4c6e-8497-c7d821a7cfb4",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://multimoney.com/mx/credito/prestamos-personales?channel=digital",
+					"text": "Solicita tu préstamo"
+				}
+			}
+		},
+		"items": []
+	}
+]
