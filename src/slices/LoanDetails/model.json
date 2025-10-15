@@ -1,0 +1,54 @@
+{
+  "id": "loan_details",
+  "type": "SharedSlice",
+  "name": "LoanDetails",
+  "description": "LoanDetails",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
+        },
+        "fee": {
+          "type": "Text",
+          "config": {
+            "label": "fee",
+            "placeholder": ""
+          }
+        },
+        "term": {
+          "type": "Text",
+          "config": {
+            "label": "term",
+            "placeholder": ""
+          }
+        },
+        "rate": {
+          "type": "Text",
+          "config": {
+            "label": "rate",
+            "placeholder": ""
+          }
+        },
+        "commission": {
+          "type": "Text",
+          "config": {
+            "label": "commission",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -5,13 +5,13 @@
 		"primary": {
 			"cat": {
 				"__TYPE__": "FieldContent",
-				"value": "nervous",
-				"type": "Text"
+				"type": "Text",
+				"value": "60.2"
 			},
 			"calculation_date": {
 				"__TYPE__": "FieldContent",
-				"value": "broken",
-				"type": "Text"
+				"type": "Text",
+				"value": "15 de enero de 2025"
 			}
 		},
 		"items": []

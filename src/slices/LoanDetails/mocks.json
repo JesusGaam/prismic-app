@@ -1,0 +1,34 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"fee": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "$7,256.00"
+			},
+			"term": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "60 meses"
+			},
+			"rate": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "3.25%"
+			},
+			"commission": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "1.00%"
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Condiciones del crédito"
+			}
+		},
+		"items": []
+	}
+]

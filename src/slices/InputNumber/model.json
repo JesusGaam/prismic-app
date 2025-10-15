@@ -1,0 +1,47 @@
+{
+  "id": "input_number",
+  "type": "SharedSlice",
+  "name": "InputNumber",
+  "description": "InputNumber",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "label",
+            "placeholder": ""
+          }
+        },
+        "default_value": {
+          "type": "Text",
+          "config": {
+            "label": "default value",
+            "placeholder": ""
+          }
+        },
+        "placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "placeholder",
+            "placeholder": ""
+          }
+        },
+        "helper_text": {
+          "type": "Text",
+          "config": {
+            "label": "helper text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

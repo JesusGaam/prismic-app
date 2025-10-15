@@ -69,7 +69,7 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-type PageDocumentDataSlicesSlice = RichTextSlice;
+type PageDocumentDataSlicesSlice = never;
 
 /**
  * Content for Page documents
@@ -141,7 +141,141 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-export type AllDocumentTypes = PageDocument;
+type PublicCreditSimulatorDocumentDataSlicesSlice =
+  | InputNumberSlice
+  | LoanDetailsSlice
+  | LegalSlice;
+
+/**
+ * Content for Public credit simulator documents
+ */
+interface PublicCreditSimulatorDocumentData {
+  /**
+   * title field in *Public credit simulator*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: public_credit_simulator.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * subtitle field in *Public credit simulator*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: public_credit_simulator.subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  subtitle: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *Public credit simulator*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: public_credit_simulator.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<PublicCreditSimulatorDocumentDataSlicesSlice>;
+}
+
+/**
+ * Public credit simulator document from Prismic
+ *
+ * - **API ID**: `public_credit_simulator`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PublicCreditSimulatorDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<PublicCreditSimulatorDocumentData>,
+    "public_credit_simulator",
+    Lang
+  >;
+
+export type AllDocumentTypes = PageDocument | PublicCreditSimulatorDocument;
+
+/**
+ * Primary content in *InputNumber → Default → Primary*
+ */
+export interface InputNumberSliceDefaultPrimary {
+  /**
+   * label field in *InputNumber → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: input_number.default.primary.label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * default value field in *InputNumber → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: input_number.default.primary.default_value
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  default_value: prismic.KeyTextField;
+
+  /**
+   * placeholder field in *InputNumber → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: input_number.default.primary.placeholder
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  placeholder: prismic.KeyTextField;
+
+  /**
+   * helper text field in *InputNumber → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: input_number.default.primary.helper_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  helper_text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for InputNumber Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type InputNumberSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<InputNumberSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *InputNumber*
+ */
+type InputNumberSliceVariation = InputNumberSliceDefault;
+
+/**
+ * InputNumber Shared Slice
+ *
+ * - **API ID**: `input_number`
+ * - **Description**: InputNumber
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type InputNumberSlice = prismic.SharedSlice<
+  "input_number",
+  InputNumberSliceVariation
+>;
 
 /**
  * Primary content in *Legal → Default → Primary*
@@ -196,48 +330,88 @@ type LegalSliceVariation = LegalSliceDefault;
 export type LegalSlice = prismic.SharedSlice<"legal", LegalSliceVariation>;
 
 /**
- * Primary content in *RichText → Default → Primary*
+ * Primary content in *LoanDetails → Default → Primary*
  */
-export interface RichTextSliceDefaultPrimary {
+export interface LoanDetailsSliceDefaultPrimary {
   /**
-   * Content field in *RichText → Default → Primary*
+   * title field in *LoanDetails → Default → Primary*
    *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Lorem ipsum...
-   * - **API ID Path**: rich_text.default.primary.content
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loan_details.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  content: prismic.RichTextField;
+  title: prismic.KeyTextField;
+
+  /**
+   * fee field in *LoanDetails → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loan_details.default.primary.fee
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  fee: prismic.KeyTextField;
+
+  /**
+   * term field in *LoanDetails → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loan_details.default.primary.term
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  term: prismic.KeyTextField;
+
+  /**
+   * rate field in *LoanDetails → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loan_details.default.primary.rate
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  rate: prismic.KeyTextField;
+
+  /**
+   * commission field in *LoanDetails → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loan_details.default.primary.commission
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  commission: prismic.KeyTextField;
 }
 
 /**
- * Default variation for RichText Slice
+ * Default variation for LoanDetails Slice
  *
  * - **API ID**: `default`
- * - **Description**: RichText
+ * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type RichTextSliceDefault = prismic.SharedSliceVariation<
+export type LoanDetailsSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<RichTextSliceDefaultPrimary>,
+  Simplify<LoanDetailsSliceDefaultPrimary>,
   never
 >;
 
 /**
- * Slice variation for *RichText*
+ * Slice variation for *LoanDetails*
  */
-type RichTextSliceVariation = RichTextSliceDefault;
+type LoanDetailsSliceVariation = LoanDetailsSliceDefault;
 
 /**
- * RichText Shared Slice
+ * LoanDetails Shared Slice
  *
- * - **API ID**: `rich_text`
- * - **Description**: RichText
+ * - **API ID**: `loan_details`
+ * - **Description**: LoanDetails
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type RichTextSlice = prismic.SharedSlice<
-  "rich_text",
-  RichTextSliceVariation
+export type LoanDetailsSlice = prismic.SharedSlice<
+  "loan_details",
+  LoanDetailsSliceVariation
 >;
 
 declare module "@prismicio/client" {
@@ -264,15 +438,22 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      PublicCreditSimulatorDocument,
+      PublicCreditSimulatorDocumentData,
+      PublicCreditSimulatorDocumentDataSlicesSlice,
       AllDocumentTypes,
+      InputNumberSlice,
+      InputNumberSliceDefaultPrimary,
+      InputNumberSliceVariation,
+      InputNumberSliceDefault,
       LegalSlice,
       LegalSliceDefaultPrimary,
       LegalSliceVariation,
       LegalSliceDefault,
-      RichTextSlice,
-      RichTextSliceDefaultPrimary,
-      RichTextSliceVariation,
-      RichTextSliceDefault,
+      LoanDetailsSlice,
+      LoanDetailsSliceDefaultPrimary,
+      LoanDetailsSliceVariation,
+      LoanDetailsSliceDefault,
     };
   }
 }

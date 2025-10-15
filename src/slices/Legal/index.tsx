@@ -12,39 +12,16 @@ export type LegalProps = SliceComponentProps<Content.LegalSlice>;
  */
 const Legal: FC<LegalProps> = ({ slice }) => {
   return (
-    <section
+    <div
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="text-[#6F6F6F] text-[14px] leading-[1.3]"
     >
-      <p><b>CAT promedio del </b><span style={{ fontWeight: 'bold', fontSize: '1.7em' }}>{slice.primary.cat}%</span></p>
-      <p>Fecha de cálculo: {slice.primary.calculation_date}</p>
-      {/**
-       * 💡 Use Prismic MCP with your code editor
-       *
-       * Get AI-powered help to build your slice components — based on your actual model.
-       *
-       * ▶️ Setup:
-       * 1. Add a new MCP Server in your code editor:
-       *
-       * {
-       *   "mcpServers": {
-       *     "Prismic MCP": {
-       *       "command": "npx",
-       *       "args": ["-y", "@prismicio/mcp-server@latest"]
-       *     }
-       *   }
-       * }
-       *
-       * 2. Select a model optimized for coding (e.g. Claude 3.7 Sonnet or similar)
-       *
-       * ✅ Then open your slice file and ask your code editor:
-       *    "Code this slice"
-       *
-       * Your code editor reads your slice model and helps you code faster ⚡
-       * 🎙️ Give your feedback: https://community.prismic.io/t/help-us-shape-the-future-of-slice-creation/19505
-       * 📚 Documentation: https://prismic.io/docs/ai#code-with-prismics-mcp-server
-       */}
-    </section>
+      <p>La tasa de interés y comisión no incluyen IVA.</p>
+      <p className="font-bold">CAT promedio del <span className="font-bold text-[1.2] text-[18px]">{slice.primary.cat}%</span> sin IVA.</p>
+      <p>Fecha de cálculo: {slice.primary.calculation_date}.</p>
+      <p>Calculado para fines informativos y de comparación exclusivamente.</p>
+    </div>
   );
 };
 

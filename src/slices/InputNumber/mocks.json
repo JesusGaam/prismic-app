@@ -1,0 +1,29 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"label": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "¿Cuánto necesitas?"
+			},
+			"default_value": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "$160,300 MXN"
+			},
+			"helper_text": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Desde <b>$20,000 MXN</b> hasta <b>$400,000  MXN</b>"
+			},
+			"placeholder": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "$20,000 MXN"
+			}
+		},
+		"items": []
+	}
+]
