@@ -69,6 +69,101 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
+/**
+ * Item in *Navbar → Navigation*
+ */
+export interface NavbarDocumentDataNavigationItem {
+  /**
+   * Link field in *Navbar → Navigation*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.navigation[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Item in *Navbar → Social media*
+ */
+export interface NavbarDocumentDataSocialMediaItem {
+  /**
+   * Link field in *Navbar → Social media*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.social_media[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   */
+  link: prismic.LinkToMediaField<prismic.FieldState, never>;
+}
+
+/**
+ * Content for Navbar documents
+ */
+interface NavbarDocumentData {
+  /**
+   * Title field in *Navbar*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * logo field in *Navbar*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Navigation field in *Navbar*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.navigation[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  navigation: prismic.GroupField<Simplify<NavbarDocumentDataNavigationItem>>;
+
+  /**
+   * Social media field in *Navbar*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.social_media[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  social_media: prismic.GroupField<Simplify<NavbarDocumentDataSocialMediaItem>>;
+}
+
+/**
+ * Navbar document from Prismic
+ *
+ * - **API ID**: `navbar`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NavbarDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<NavbarDocumentData>,
+    "navbar",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice = never;
 
 /**
@@ -141,66 +236,7 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type PublicCreditSimulatorDocumentDataSlicesSlice =
-  | InputNumberSlice
-  | LoanDetailsSlice
-  | LegalSlice;
-
-/**
- * Content for Public credit simulator documents
- */
-interface PublicCreditSimulatorDocumentData {
-  /**
-   * title field in *Public credit simulator*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: public_credit_simulator.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * subtitle field in *Public credit simulator*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: public_credit_simulator.subtitle
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  subtitle: prismic.ImageField<never>;
-
-  /**
-   * Slice Zone field in *Public credit simulator*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: public_credit_simulator.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/slices
-   */
-  slices: prismic.SliceZone<PublicCreditSimulatorDocumentDataSlicesSlice>;
-}
-
-/**
- * Public credit simulator document from Prismic
- *
- * - **API ID**: `public_credit_simulator`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/content-modeling
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type PublicCreditSimulatorDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<PublicCreditSimulatorDocumentData>,
-    "public_credit_simulator",
-    Lang
-  >;
-
-export type AllDocumentTypes = PageDocument | PublicCreditSimulatorDocument;
+export type AllDocumentTypes = NavbarDocument | PageDocument;
 
 /**
  * Primary content in *InputNumber → Default → Primary*
@@ -435,12 +471,13 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      NavbarDocument,
+      NavbarDocumentData,
+      NavbarDocumentDataNavigationItem,
+      NavbarDocumentDataSocialMediaItem,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
-      PublicCreditSimulatorDocument,
-      PublicCreditSimulatorDocumentData,
-      PublicCreditSimulatorDocumentDataSlicesSlice,
       AllDocumentTypes,
       InputNumberSlice,
       InputNumberSliceDefaultPrimary,
