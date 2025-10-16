@@ -9,11 +9,7 @@ import { components } from "@/slices";
 export default async function Home() {
   const client = createClient();
   const home = await client.getByUID("page", "home");
-
-  return <>
-    <h1>This is the Homepage</h1>
-  </>
-  // return <SliceZone slices={home.data..slices} components={components} />;
+  return <SliceZone slices={home.data.slices} components={components} />;
 }
 
 export async function generateMetadata(): Promise<Metadata> {
