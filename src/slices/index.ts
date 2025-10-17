@@ -8,4 +8,5 @@ export const components = {
   input_number: dynamic(() => import("./InputNumber")),
   legal: dynamic(() => import("./Legal")),
   loan_details: dynamic(() => import("./LoanDetails")),
+  testimonials: dynamic(() => import("./Testimonials")),
 };
